@@ -1,0 +1,23 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loading-box {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    border: 3px solid $hezi-gray-border;
+    border-top: 3px solid $hezi-color-primary;
+    border-radius: 50%;
+    animation: loading-360 0.8s infinite linear;
+
+    @keyframes loading-360 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

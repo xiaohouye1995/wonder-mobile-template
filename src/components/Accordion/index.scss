@@ -1,0 +1,31 @@
+.accordion {
+  background: #fff;
+  .accordion__container {
+    padding: 32px 0;
+  }
+  .accordion__head {
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28px;
+    color: #1C1C1C;
+    font-weight: bold;
+  }
+  .accordion__content {
+    position: relative;
+    transition: max-height 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .accordion-box-show {
+    max-height: 1000px;
+  }
+  .icon_arrow_down {
+    width: 32px;
+    height: 32px;
+    transition: transform .3s;
+    &.icon_arrow_down--up {
+      transform: rotate(180deg);
+    }
+  }
+}

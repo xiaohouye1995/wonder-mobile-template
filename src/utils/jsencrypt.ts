@@ -1,0 +1,22 @@
+import { JSEncrypt } from 'jsencrypt'
+
+const PRIV_KEY =
+  'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMGYuWUHuepCypCzacERpcImSZoHOhuL/RQ9NnjMziogNPnd/oLVu0/XkCameNCf2VNgVjf0MHRinK4xhFCr4pI7xqaTTTSXGgs45b4iqRyR54VqBUdTJqZI8A/JXVFJb6B1k+ywVYoNTpnNkSijtxGIB/UAt/A6S79qR2xtfPklAgMBAAECgYEAmSBwu82xqu5rhKq0YkbQIlHgc5l1x6YhZmnIdSIhi8ZvwJdroRbnEo8BcODJvNJCtqUDbTyTOuto3ItECf76tKbsBeXe7R7stY8eaSTvyL9Y48bOe9kp/XLXcand4y9RSfc2yITq5cvPvYeCbdfSkq3FOgzTgxdiBY1iVwRBWz0CQQD8VZmUWllxrBvrUvwQWSYiK51xr0/EqUnqoXz2xcSIA7SNc87pRRf01/2Y/E+P+CLFGoOdt79W6nhb3JHOgl2jAkEAxGivjI2DDtJRhZs2K5zpcAHmUnQMqm2LZittoj2kpHCVBSzfueGUh1OLc9wAPlvMbATtOIV87Dlxh+WFVYkqlwJAOA9Mb4kjFf4GteFZ3sfvkOffssIgFrEFmvsFqE2HvDAWjNaNwYV4LQ1Pag2kH3ghQWkClKed+tFcrAv02MxdwQJAI1h7jx3AYiBzT0n5W6vnTqLo4hnEVb9VANP77OCPCpDAIKhMstTnt9rPE9CZsp8ukJnqXuuW6aQEzGH/tr7yjQJAEalWU/cn/8yOpc3BTsLXKy51rIIR3D7t5ONNsoKbi6LV1uNGFCfz7MaYYglMB27Tdw66Cujwg+zIsYP8x3wrOw=='
+
+const PUB_KEY =
+  'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBmLllB7nqQsqQs2nBEaXCJkmaBzobi/0UPTZ4zM4qIDT53f6C1btP15AmpnjQn9lTYFY39DB0YpyuMYRQq+KSO8amk000lxoLOOW+IqkckeeFagVHUyamSPAPyV1RSW+gdZPssFWKDU6ZzZEoo7cRiAf1ALfwOku/akdsbXz5JQIDAQAB'
+// 公钥加密
+export function encrypt(text) {
+  const encryptdata = new JSEncrypt()
+  encryptdata.setPublicKey(PUB_KEY)
+  const encrypted = encryptdata.encrypt(text)
+  return encrypted
+}
+
+// 私钥解密
+export function decrypt(text) {
+  const decryptdata = new JSEncrypt()
+  decryptdata.setPrivateKey(PRIV_KEY)
+  const decrypted = decryptdata.decrypt(text)
+  return decrypted
+}

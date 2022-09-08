@@ -1,0 +1,57 @@
+// 变量
+// 主题色
+$hezi-color-primary: #a30022;
+$hezi-color-primary-100: #fff2f1;
+$hezi-color-primary-200: #ffccc8;
+$hezi-color-primary-300: #ff7775;
+$hezi-color-primary-400: $hezi-color-primary;
+$hezi-color-primary-500: #f5212d;
+$hezi-color-primary-600: #d01121;
+$hezi-color-primary-700: #a8051a;
+$hezi-color-primary-800: #810114;
+$hezi-color-primary-900: #5c0011;
+
+$hezi-color-secondary: #cc9756;
+$hezi-color-secondary-light: #ffdeac;
+$hezi-color-secondary-dark: #b5854b;
+
+$hezi-color-secondary-100: #fee3c9;
+$hezi-color-secondary-200: #ffdeac;
+$hezi-color-secondary-300: #ffd4a9;
+$hezi-color-secondary-400: #f0cda1;
+$hezi-color-secondary-500: #efb66f;
+$hezi-color-secondary-600: #cc9756;
+
+$hezi-color-warning: #f5212d;
+$hezi-color-success: #29cf7b;
+
+// 文字色
+$hezi-text-color: #333;
+$hezi-text-color-light: #a5a5a5;
+$hezi-text-color-gray: #cdcdcd;
+$hezi-text-color-dark-gray: #666;
+$hezi-text-color-member: #FFEAD0;
+
+// 灰色系
+$hezi-gray-mask: rgba(0, 0, 0, 0.5);
+$hezi-gray-icon: #cdcdcd;
+$hezi-gray-border: #eee;
+
+// 背景色
+$hezi-background-white: #fff;
+$hezi-background-gray: #f6f6f6;
+
+//  处理ios底部安全区域
+@mixin x-padding-bottom($val: 1px) {
+  padding-bottom: $val;
+  padding-bottom: calc(#{$val} + constant(safe-area-inset-bottom));
+  /* ios 11 */
+  padding-bottom: calc(#{$val} + env(safe-area-inset-bottom));
+  /* ios 11.2及以后 */
+}
+@mixin x-margin-bottom() {
+  /* ios 11 */
+  margin-bottom: constant(safe-area-inset-bottom);
+   /* ios 11.2及以后 */
+  margin-bottom: env(safe-area-inset-bottom);
+}

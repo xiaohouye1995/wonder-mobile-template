@@ -1,0 +1,124 @@
+.popup {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  z-index: 99999999;
+
+  &-mask {
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  &.top {
+    .popup-wrapper {
+      background: $hezi-background-white;
+      position: fixed;
+      z-index: 11;
+      top: 88px;
+    }
+  }
+
+  &.bottom {
+    .popup-wrapper {
+      box-shadow: 0px -4px 8px 0px rgba(237, 237, 237, 0.5000);
+      background: $hezi-background-white;
+      border-radius: 24px 24px 0 0;
+      position: fixed;
+      z-index: 11;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 0px;
+      transition: height 0.3s ease-out;
+      @include x-padding-bottom(-12px);
+    }
+  }
+
+  &.center {
+    .popup-wrapper {
+      background: transparent;
+      position: absolute;
+      z-index: 11;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+  }
+
+  .popup-wrapper {
+    .icon-guanbi1 {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      font-size: 30px;
+    }
+  }
+
+  &-show {
+    animation: show 0.3s ease-out forwards;
+
+    .popup-mask {
+      opacity: 1;
+    }
+
+    &.bottom {
+      .popup-wrapper {
+        height: var(--popup-height);
+      }
+    }
+
+    &.center {
+      .popup-wrapper {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  &-hide {
+    animation: hide 0.3s ease-out forwards;
+
+    .popup-mask {
+      opacity: 0;
+    }
+
+    &.bottom {
+      .popup-wrapper {
+        height: 0px;
+      }
+    }
+
+    &.center {
+      .popup-wrapper {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    visibility: hidden;
+  }
+
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes hide {
+  0% {
+    visibility: visible;
+  }
+
+  100% {
+    visibility: hidden;
+  }
+}

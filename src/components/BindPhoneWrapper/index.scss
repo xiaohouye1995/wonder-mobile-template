@@ -1,0 +1,39 @@
+.complete-info_wrapper {
+  position: relative;
+
+  .complete-info_fixed-btn {
+    position: absolute;
+    z-index: 990;
+    background: transparent;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    &::after {
+      border: none;
+    }
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .btn-phone {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    padding-bottom: calc(
+      40px + constant(safe-area-inset-bottom)
+    ); /* 兼容 iOS < 11.2 */
+    padding-bottom: calc(
+      40px + env(safe-area-inset-bottom)
+    ); /* 兼容 iOS >= 11.2 */
+  }
+}

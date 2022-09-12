@@ -1,4 +1,4 @@
-# taro 移动端项目
+# wonder-mobile-template
 
 ## 开发准备
 

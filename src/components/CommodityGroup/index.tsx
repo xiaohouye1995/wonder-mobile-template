@@ -1,5 +1,5 @@
 /**
- * @author 小侯爷
+ * @author 周俊阳
  * @desc 业务组件-商品组详情
  */
 import React, { useState, useEffect } from 'react'
@@ -9,8 +9,9 @@ import { RootState } from '@/store'
 import { View, Image, Button, RichText, ScrollView } from '@tarojs/components'
 import { navigateToPage, rpxToPx } from '@/utils/common'
 import NoData from '@/components/NoData'
+import IconCommodityGroup from '@/assets/common/icon_commodityGroup_title.png'
 import AccordionPages from './AccordionPages'
-// import Order from '../../pages/order'
+import Order from '../../pages/order'
 import './index.scss'
 
 interface IPageProps extends IProps {
@@ -36,12 +37,12 @@ const CommodityGroup: React.FC<IPageProps> = (props: IPageProps) => {
   const useCustomNav = useSelector(
     (state: RootState) => state.global.useCustomNav
   )
+  const systemInfo = useSelector((state: RootState) => state.global.systemInfo)
   const [tabsActive, setTabsActive] = useState(0)
   const [tabsItemH, setTabsItemH] = useState<number[]>([])
   const [currentScrollTop, setCurrentScrollTop] = useState(0)
   const [isTabsGradient, setIsTabsGradient] = useState(false)
   const [tabsTop, setTabsTop] = useState(0)
-  const [tabsW, setTabsW] = useState(0)
   const [tabsScrollLeft, setTabsScrollLeft] = useState(0)
   const [show, handleShow] = useState(false)
   const tabsHeightPx = rpxToPx(useCustomNav ? 92 + offsetTop : offsetTop)
@@ -64,7 +65,6 @@ const CommodityGroup: React.FC<IPageProps> = (props: IPageProps) => {
         .select('#commodityGroupTabs')
         .boundingClientRect((rect) => {
           setTabsTop(rect.top)
-          setTabsW(rect.width)
         })
         .exec()
     }
@@ -103,12 +103,21 @@ const CommodityGroup: React.FC<IPageProps> = (props: IPageProps) => {
 
   const toTabsScrollX = (index) => {
     Taro.createSelectorQuery()
-      .select(`#tabsItem-${index}`)
+      .selectAll('.commodityGroup-tabs-item')
       .boundingClientRect((rect) => {
-        const left = rect.left - tabsW / 2 + rect.width / 2
-        // console.log('left', left)
-        setTabsScrollLeft(left)
-        setTabsActive(index)
+        let width = 0
+        for (let i = 0; i < index; i++) {
+          width += rect[i].width
+        }
+        //大于屏幕一半的宽度则滚动
+        const clientWidth = systemInfo.windowWidth / 2
+        if (width > clientWidth) {
+          setTabsScrollLeft(width + rect[index].width / 2 - clientWidth)
+          setTabsActive(index)
+        } else {
+          setTabsScrollLeft(0)
+          setTabsActive(index)
+        }
       })
       .exec()
   }
@@ -206,7 +215,9 @@ const CommodityGroup: React.FC<IPageProps> = (props: IPageProps) => {
               id='commodityGroupTabs'
               className={[
                 'commodityGroup-tabs',
-                isTabsGradient ? 'bg-white' : '',
+                isTabsGradient
+                  ? 'commodityGroup-tabs--isTabsGradient bg-white'
+                  : '',
               ].join(' ')}
               style={{
                 top: `${tabsHeightPx - 1}px`,
@@ -220,36 +231,45 @@ const CommodityGroup: React.FC<IPageProps> = (props: IPageProps) => {
                   <View
                     key={item.id}
                     id={`tabsItem-${index}`}
-                    className={[
-                      'commodityGroup-tabs-item mr-48 pb-6',
-                      index === tabsActive
-                        ? 'commodityGroup-tabs-active t2'
-                        : '',
-                    ].join(' ')}
+                    className='commodityGroup-tabs-item pr-48 pb-6'
                     onClick={() => toTabsItem(item, index)}
                   >
-                    {item[title]}
+                    <View
+                      className={[
+                        'commodityGroup-tabs-item-title',
+                        index === tabsActive
+                          ? 'commodityGroup-tabs-active t2'
+                          : '',
+                      ].join(' ')}
+                    >
+                      {item[title]}
+                    </View>
                   </View>
                 )
               })}
             </ScrollView>
           )}
-          {info[tabsName].map((item) => {
+          {info[tabsName].map((item, index) => {
             return (
               <View
                 key={item.id}
                 id={`top-${item.id}`}
-                className='commodityGroup-item mx-24 round-xs pt-32'
+                className={[
+                  'commodityGroup-item mx-24 round-xs',
+                  index === 0 ? 'pt-30' : 'pt-40',
+                ].join(' ')}
               >
-                <View className='flex flex-center t2 text-C83232 mb-32'>
-                  <View className='commodityGroup-horizontalLine' />
-                  <View className='mx-16'>{item[title]}</View>
-                  <View className='commodityGroup-horizontalLine' />
+                <View className='flex flex-y-center t2 text-1C1C1C mb-24'>
+                  <Image
+                    src={IconCommodityGroup}
+                    className='commodityGroup-icon'
+                  />
+                  <View className='ml-8'>{item[title]}</View>
                 </View>
 
                 {/* 商品组部分 */}
                 {item.content && (
-                  <View className='commodityGroup-item-card py-32 px-24'>
+                  <View className='commodityGroup-item-card'>
                     <RichText
                       className='commodityGroup-richText'
                       nodes={item.content}
@@ -277,7 +297,7 @@ const CommodityGroup: React.FC<IPageProps> = (props: IPageProps) => {
                         {itm.contentDto && (
                           <View
                             className={[
-                              'commodityGroup-item-card py-32 px-24',
+                              'commodityGroup-item-card',
                               item.modules[0]?.type !== 1 ? 'mt-24' : '',
                             ].join(' ')}
                           >
@@ -329,7 +349,7 @@ const CommodityGroup: React.FC<IPageProps> = (props: IPageProps) => {
             )
           })}
           {/* 立即购买弹窗 */}
-          {/* <Order show={show} onClose={close} /> */}
+          <Order show={show} onClose={close} />
         </View>
       )}
       {info.status === 2 && <NoData desc='暂无内容' />}

@@ -1,0 +1,50 @@
+.myHead {
+  background: #f6f6f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 24px;
+  .title {
+    width: 500px;
+    font-size: 36px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    .myTitle {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-left: 10px;
+      font-size: 36px;
+      font-weight: 500;
+      font-family: Source Han Sans CN, 'sans-serif';
+    }
+
+    .headIcon {
+      width: 38px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .more {
+    position: relative;
+    right: 28px;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-family: Source Han Sans CN, 'sans-serif';
+    font-weight: 400;
+  }
+
+  .more::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-top: 1px solid #666666;
+    border-right: 1px solid #666666;
+    transform: rotate(45deg);
+  }
+}

@@ -1,0 +1,99 @@
+.flowRate {
+
+    .callBanner {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+        .bannerPic {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: 188px;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .flowCon {
+        margin-top: 16px;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow:  wrap;
+
+        .flowBox {
+            width: 219px;
+            height: 200px;
+            background: #fff;
+            padding: 0 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: column wrap;
+            box-shadow: 0px 0px 10px 1px rgba(206, 206, 206, 0.2000);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            margin-right: 18px;
+
+            .flowBg {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .flowHot {
+                width: 55px;
+                height: 52px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 2;
+            }
+
+            .flowPic {
+                width: 111px;
+                height: 111px;
+                margin: 0 auto;
+            }
+
+            .flowText {
+                width: 100%;
+                font-size: 24px;
+                font-weight: 500;
+                color: #333333;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                z-index: 2;
+            }
+
+            .flowContent {
+                width: 100%;
+                font-size: 22px;
+                font-weight: 500;
+                color: #999999;
+                opacity: 0.8;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                z-index: 2;
+            }
+        }
+
+        .flowBox:nth-of-type(1) {
+            margin-bottom: 18px;
+        }
+
+        .flowBox:nth-of-type(3n) {
+            margin: 0;
+        }
+    }
+}

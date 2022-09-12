@@ -1,5 +1,5 @@
 /**
- * @author 小侯爷
+ * @author 周俊阳
  * @desc 工具类
  */
 import Taro from '@tarojs/taro'
@@ -130,21 +130,9 @@ export const isRouterUrl = (url, type?: number) => {
     navigateToH5(url)
   } else {
     Taro.showToast({
-      title: '未配置跳转链接',
+      title: '暂无更多内容',
       icon: 'none',
       duration: 2000,
     })
   }
-}
-
-/**
- * 根据时间进行排序
- */
-export const arrTimeSort = (arr) => {
-  arr.sort((a, b) => {
-    const t1 = new Date(Date.parse(a.create_time.replace(/-/g, '/')))
-    const t2 = new Date(Date.parse(b.create_time.replace(/-/g, '/')))
-    return t2.getTime() - t1.getTime()
-  })
-  return arr
 }

@@ -1,12 +1,12 @@
 /**
- * @author 小侯爷
+ * @author 周俊阳
  * @desc 项目配置
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import path from 'path'
 
 const config = {
-  projectName: '餐饮红黑榜',
+  projectName: '杭州网达软件',
   date: '2022-6-1',
   designWidth: 750,
   deviceRatio: {

@@ -6,10 +6,7 @@ import { navigateToPage } from '@/utils/common'
 const baseUrl = API_ROOT
 
 // 不需要loading的api白名单
-const noLoadingList: string[] = [
-  '5gmall-api/mall/site/queySitesInfo',
-  '5gmall-api/commodity/queryCommodityGroup',
-]
+const noLoadingList: string[] = []
 
 // 返回结果是流的api白名单，此类接口返回数据没有data等格式
 const arrayBufferList: string[] = []
@@ -124,10 +121,15 @@ export const get = <T>(url: string, data = {}, msg?: string): Promise<T> =>
  * @param {*} url
  * @param {*} data
  */
-export const post = <T>(url: string, data = {}, msg?: string): Promise<T> =>
+export const post = <T>(
+  url: string,
+  data = {},
+  msg?: string,
+  isLoading?: boolean
+): Promise<T> =>
   new Promise((resolve, reject) => {
     const loading = noLoadingList.indexOf(url) < 0
-    if (loading) {
+    if (isLoading && loading) {
       Taro.showLoading({
         title: msg || '数据加载中',
       })

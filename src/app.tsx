@@ -64,7 +64,7 @@ class App extends Component {
     // 获取用户及启动数据
     // store.dispatch.userInfo.initUserInfo()
     // 获取是否使用自定义标题栏
-    process.env.TARO_ENV === 'h5' && store.dispatch.global.setUseCustomNav()
+    store.dispatch.global.setUseCustomNav()
   }
 
   // this.props.children 是将要会渲染的页面

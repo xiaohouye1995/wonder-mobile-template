@@ -1,15 +1,12 @@
 /**
- * @author 小侯爷
+ * @author 周俊阳
  * @desc 初始页面组件
  */
 import React, { useEffect } from 'react'
 import Taro from '@tarojs/taro'
-import { Button, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store'
-import BindPhoneWrapper from '@/components/BindPhoneWrapper'
-import NoData from '@/components/NoData'
-import userImg from '@/assets/common/logo_2x.png'
 import './index.scss'
 
 interface IPageProps extends IProps {
@@ -55,9 +52,11 @@ const BasePage: React.FC<IPageProps> = (props: IPageProps) => {
 
   return (
     <View
-      className={`state-page ${isTabPage ? 'area-bottom' : ''} ${
-        useCustomNav ? 'pt-92' : ''
-      }`}
+      className={[
+        'state-page',
+        isTabPage && 'area-bottom',
+        useCustomNav && 'pt-92',
+      ].join(' ')}
     >
       {useCustomNav && (
         <View
@@ -72,15 +71,6 @@ const BasePage: React.FC<IPageProps> = (props: IPageProps) => {
           )}
           <View className='t2'>{pageTitle}</View>
         </View>
-      )}
-      {needPhone && (!userInfo || !userInfo.info?.phone) && (
-        <NoData img={userImg} desc='登录发现更多'>
-          <BindPhoneWrapper>
-            <Button className='button button-primary btn-login mt-20'>
-              立即登录
-            </Button>
-          </BindPhoneWrapper>
-        </NoData>
       )}
       {(!needPhone || (userInfo && userInfo.info?.phone)) && (
         <View className={className} style={styleVars + styleVal}>

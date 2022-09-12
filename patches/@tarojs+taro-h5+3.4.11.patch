@@ -1,0 +1,22 @@
+diff --git a/node_modules/@tarojs/taro-h5/dist/api/ui/scroll/index.js b/node_modules/@tarojs/taro-h5/dist/api/ui/scroll/index.js
+index 6dde0fe..c2628a9 100644
+--- a/node_modules/@tarojs/taro-h5/dist/api/ui/scroll/index.js
++++ b/node_modules/@tarojs/taro-h5/dist/api/ui/scroll/index.js
+@@ -6,7 +6,7 @@ const FRAME_DURATION = 17;
+ /**
+  * 将页面滚动到目标位置
+  */
+-export const pageScrollTo = ({ scrollTop, selector = '', duration = 300, success, fail, complete }) => {
++export const pageScrollTo = ({ scrollTop, selector = '', offsetTop = 0, duration = 300, success, fail, complete }) => {
+     let scrollFunc;
+     const handle = new MethodHandler({ name: 'pageScrollTo', success, fail, complete });
+     return new Promise((resolve, reject) => {
+@@ -54,7 +54,7 @@ export const pageScrollTo = ({ scrollTop, selector = '', duration = 300, success
+             }
+             else {
+                 const el = document.querySelector(selector);
+-                to = (el === null || el === void 0 ? void 0 : el.offsetTop) || 0;
++                to = (el === null || el === void 0 ? void 0 : el.offsetTop + offsetTop) || 0;
+             }
+             const delta = to - from;
+             const frameCnt = duration / FRAME_DURATION;

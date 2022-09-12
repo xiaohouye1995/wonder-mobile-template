@@ -1,6 +1,7 @@
 .negotiate {
     font-family: PingFangSC-Medium, PingFang SC, Sans-serif;
     padding-bottom: 20px;
+    padding-top: 24px;
 
     .negotiateBox {
 
@@ -146,4 +147,13 @@
             }
         }
     }
+}
+
+.weui-picker__hd,
+.weui-picker__indicator {
+    font-size: 30px !important;
+}
+
+.weui-picker__bd {
+    font-size: 30px !important;
 }

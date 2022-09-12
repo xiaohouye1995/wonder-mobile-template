@@ -62,6 +62,7 @@ declare namespace Store {
       elementId: number
       address: string
       type: number
+      publish: number //0下架1上架
       childList: IQueySitesInfoListChild[]
     }
     interface IQueySitesInfoListChild {

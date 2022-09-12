@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '餐饮红黑榜',
+  navigationBarTitleText: '杭州网达软件',
 }

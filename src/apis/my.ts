@@ -1,5 +1,5 @@
 /**
- * @author 小侯爷
+ * @author 周俊阳
  * @desc 我的页面接口
  */
 import { get, post } from '@/utils/request'

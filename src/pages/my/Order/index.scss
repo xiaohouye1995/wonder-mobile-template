@@ -1,0 +1,39 @@
+.order {
+
+    .buyBox {
+        height: auto;
+        background: #fff;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: wrap;
+        text-align: center;
+        padding-top: 21px;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .buyCon {
+            width: 25%;
+            height: 191px;
+            display: flex;
+            flex-flow: wrap;
+
+            .buyConPic {
+                width: 114px;
+                height: 109px;
+                margin: 0 auto;
+            }
+
+            .orderText {
+                display: inline-block;
+                width: 100%;
+                font-size: 22px;
+                font-weight: 500;
+                color: #323232;
+                margin-bottom: 40px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}

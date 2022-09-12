@@ -159,17 +159,14 @@ const Login: React.FC = () => {
   }
 
   return (
-    <BasePage
-      className='login px-62 mt-24'
-      pageTitle='登录'
-      pageColor='#FFFFFF'
-    >
+    <BasePage className='login px-62 ' pageTitle='登录' pageColor='#FFFFFF'>
       {/* <View>登录页面</View> */}
       <Image src={logoImg} className='logo' />
       {state ? (
         <View className='number-login'>
           <View className='login-content'>
             <Input
+              placeholderTextColor='#333333'
               placeholder='请输入手机号码'
               className='login-input login-phone'
               type='number'

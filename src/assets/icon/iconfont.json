@@ -1,0 +1,37 @@
+{
+  "id": "3477665",
+  "name": "h5",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2675116",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "1270",
+      "name": "错误",
+      "font_class": "cuowu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "27724180",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "29865219",
+      "name": "右箭头",
+      "font_class": "youjiantou1",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    }
+  ]
+}

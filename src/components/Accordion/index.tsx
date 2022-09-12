@@ -1,5 +1,5 @@
 /**
- * @author 小侯爷
+ * @author 周俊阳
  * @desc 手风琴折叠组件
  */
 import React, { useState } from 'react'
@@ -18,8 +18,13 @@ const Accordion: React.FC<IPageProps> = (props: IPageProps) => {
   const [isShow, setIsShow] = useState(false)
 
   return (
-    <View className={`accordion ${className}`}>
-      <View className='accordion__container'>
+    <View className={['accordion', className].join(' ')}>
+      <View
+        className={[
+          'accordion__container pt-32',
+          isShow ? 'pb-26' : 'pb-32',
+        ].join(' ')}
+      >
         <View
           className='accordion__head'
           onClick={() => {
@@ -29,12 +34,18 @@ const Accordion: React.FC<IPageProps> = (props: IPageProps) => {
         >
           <View>{title}</View>
           <Image
-            className={`icon_arrow_down ${isShow ? 'icon_arrow_down--up' : ''}`}
+            className={[
+              'icon_arrow_down',
+              isShow && 'icon_arrow_down--up',
+            ].join(' ')}
             src={icon_arrow_down}
           />
         </View>
         <View
-          className={`accordion__content ${isShow ? 'accordion-box-show' : ''}`}
+          className={[
+            'accordion__content',
+            isShow && 'accordion-box-show',
+          ].join(' ')}
         >
           {props.children}
         </View>

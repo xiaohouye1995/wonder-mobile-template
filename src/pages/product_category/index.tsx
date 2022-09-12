@@ -5,6 +5,7 @@ import { queySitesInfo } from '@/apis/home'
 import Taro from '@tarojs/taro'
 import BasePage from '@/components/BasePage'
 import search from '@/assets/product_category/sousuo.png'
+import Loading from '@/components/Loading'
 import './index.scss'
 
 //获取不同设备屏幕高度
@@ -36,12 +37,7 @@ const ProductCategory: React.FC = () => {
   const [distance, setDistance] = useState(0)
   //渲染数据
   const [data, setData] = useState<any>([])
-  // -------------------------------
-  const [show, handleShow] = useState(false)
-  const close = () => {
-    handleShow(false)
-  }
-  // -------------------------------
+  const [isLoading, setIsLoading] = useState(false)
 
   const selectHeight = () => {
     const arr = [] as any
@@ -100,109 +96,118 @@ const ProductCategory: React.FC = () => {
   }, [selectId])
 
   useEffect(() => {
+    setIsLoading(true)
     const siteNos = ['H5-product category']
     queySitesInfo(siteNos).then((res: any) => {
       if (res.length) {
         navClick(res[0].list[0].title, 0)
         setData(res[0].list)
+        setIsLoading(false)
       }
     })
   }, [])
 
   return (
     <BasePage className='product_category' pageTitle='产品分类'>
-      <View className='productBox'>
-        <View
-          className='searchProduct'
-          onClick={() => navigateToPage('/pages/search/index')}
-        >
-          <Image
-            src={search}
-            mode='widthFix'
-            style={{ width: '12px', marginRight: '8px', top: '7px' }}
-          />
-          输入搜索产品名称
-        </View>
-      </View>
-      <View className='content'>
-        <ScrollView className='content_left'>
-          {data.map((item, index) => {
-            return (
-              <View
-                key={`${item.title}${index}`}
-                style={{ position: 'relative' }}
-              >
-                <View
-                  key={index}
-                  className={`nav_title ${
-                    index === navActive ? 'nav_active' : ''
-                  }`}
-                  onClick={() => navClick(item.title, index)}
-                >
-                  {item.title}
-                </View>
-              </View>
-            )
-          })}
-        </ScrollView>
-        <ScrollView
-          className='content_scroll'
-          style={{ height: `${winHeight}px` }}
-          scrollY
-          scrollWithAnimation
-          scrollIntoView={selectId}
-          enhanced
-          bounces={false}
-          onScroll={(e) => onscroll(e)}
-          scrollTop={scrollVal}
-        >
-          <View style={{ paddingBottom: `${winHeight - 132}px` }}>
-            {data.map((_, i) => {
-              return (
-                <View key={i} className='outermost'>
-                  {data[i].childList.map((item, index) => {
-                    return (
-                      <View
-                        key={`${item.title}${index}`}
-                        className='content_box'
-                      >
-                        <View className='rectangle'>
-                          <View className='content_title'>{item.title}</View>
-                        </View>
-                        {item.childList && item.childList.length > 0 ? (
-                          <View className='content_center_box'>
-                            {item.childList.map((ele, num) => {
-                              return (
-                                <View
-                                  key={`${ele.title}${num}`}
-                                  className='content_center'
-                                  onClick={() => {
-                                    isRouterUrl(ele.address, ele.type)
-                                  }}
-                                >
-                                  <Image
-                                    style={{ width: '50%' }}
-                                    src={ele.icon || ''}
-                                  />
-                                  <View className='doctor_name'>
-                                    {ele.title}
-                                  </View>
-                                </View>
-                              )
-                            })}
-                          </View>
-                        ) : (
-                          '暂无数据'
-                        )}
-                      </View>
-                    )
-                  })}
-                </View>
-              )
-            })}
+      {!isLoading && (
+        <>
+          <View className='productBox'>
+            <View
+              className='searchProduct'
+              onClick={() => navigateToPage('/pages/search/index')}
+            >
+              <Image
+                src={search}
+                mode='widthFix'
+                style={{ width: '12px', marginRight: '8px', top: '7px' }}
+              />
+              输入搜索产品名称
+            </View>
           </View>
-        </ScrollView>
-      </View>
+          <View className='content'>
+            <ScrollView className='content_left'>
+              {data.map((item, index) => {
+                return (
+                  <View
+                    key={`${item.title}${index}`}
+                    style={{ position: 'relative' }}
+                  >
+                    <View
+                      key={index}
+                      className={`nav_title ${
+                        index === navActive ? 'nav_active' : ''
+                      }`}
+                      onClick={() => navClick(item.title, index)}
+                    >
+                      {item.title}
+                    </View>
+                  </View>
+                )
+              })}
+            </ScrollView>
+            <ScrollView
+              className='content_scroll'
+              style={{ height: `${winHeight}px` }}
+              scrollY
+              scrollWithAnimation
+              scrollIntoView={selectId}
+              enhanced
+              bounces={false}
+              onScroll={(e) => onscroll(e)}
+              scrollTop={scrollVal}
+            >
+              <View style={{ paddingBottom: `${winHeight - 132}px` }}>
+                {data.map((_, i) => {
+                  return (
+                    <View key={i} className='outermost'>
+                      {data[i].childList.map((item, index) => {
+                        return (
+                          <View
+                            key={`${item.title}${index}`}
+                            className='content_box'
+                          >
+                            <View className='rectangle'>
+                              <View className='content_title'>
+                                {item.title}
+                              </View>
+                            </View>
+                            {item.childList && item.childList.length > 0 ? (
+                              <View className='content_center_box'>
+                                {item.childList.map((ele, num) => {
+                                  return (
+                                    <View
+                                      key={`${ele.title}${num}`}
+                                      className='content_center'
+                                      onClick={() => {
+                                        isRouterUrl(ele.address, ele.type)
+                                      }}
+                                    >
+                                      <Image
+                                        style={{ width: '50%' }}
+                                        src={ele.icon || ''}
+                                      />
+                                      <View className='doctor_name'>
+                                        {ele.title}
+                                      </View>
+                                    </View>
+                                  )
+                                })}
+                              </View>
+                            ) : (
+                              '暂无数据'
+                            )}
+                          </View>
+                        )
+                      })}
+                    </View>
+                  )
+                })}
+              </View>
+            </ScrollView>
+          </View>
+        </>
+      )}
+      <Loading isShow={isLoading} />
     </BasePage>
   )
 }

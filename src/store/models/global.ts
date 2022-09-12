@@ -1,6 +1,6 @@
 import { createModel } from '@rematch/core'
 import Taro from '@tarojs/taro'
-// import { isUseCustomNav } from '@/utils/common'
+import { isUseCustomNav } from '@/utils/common'
 import { RootModel } from '.'
 
 export const global = createModel<RootModel>()({
@@ -43,7 +43,7 @@ export const global = createModel<RootModel>()({
       dispatch.global.setSystemInfoSync(systemInfo)
     },
     setUseCustomNav() {
-      // dispatch.global.setUseCustomNavSync(isUseCustomNav())
+      dispatch.global.setUseCustomNavSync(isUseCustomNav())
     },
   }),
 })

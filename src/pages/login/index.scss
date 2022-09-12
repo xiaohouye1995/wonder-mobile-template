@@ -3,10 +3,11 @@
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+  height: 100vh;
   .logo {
     width: 408px;
     height: 96px;
-    margin-top: 192px;
+    margin-top: 158px;
   }
   .login-content {
     align-self: flex-start;
@@ -16,7 +17,7 @@
       height: 88px;
       box-sizing: border-box;
       border-bottom: 1px solid #f0f0f0;
-      color: #999999;
+      color: #333;
       font-family: sans-serif;
       font-size: 28px;
       font-weight: 400;
@@ -26,6 +27,7 @@
         position: absolute;
         right: 0;
         top: 24px;
+        color: #666666;
       }
     }
     .userphone {
@@ -127,8 +129,4 @@
   .code-login .login-placeholder {
     align-self: center;
   }
-}
-
-#app.taro_router .taro_page {
-  background-color: #fff;
 }

@@ -96,11 +96,7 @@ const Negotiate: React.FC = () => {
   }
 
   return (
-    <BasePage
-      className='negotiate px-28'
-      pageTitle='预约洽谈'
-      pageColor='#F6F6F6'
-    >
+    <BasePage className='negotiate px-28' pageTitle='预约洽谈' pageColor='#fff'>
       <View className='negotiateBox'>
         <Form
           onSubmit={(e) => {

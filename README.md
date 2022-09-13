@@ -1,19 +1,40 @@
-# wonder-mobile-template
+# 杭州网达移动多端模板
 
 ## 开发准备
 
-1. 克隆项目,地址 http://192.168.1.42/hz-rdd/smartBack-mobile.git
-
-2. npm i 安装依赖包
-
-3. 使用 npm 或者 yarn 全局安装 `@tarojs/cli`
-
-   ```javascript
-   yarn global add @tarojs/cli@3.4.11
+1. 克隆项目
+2. 初始化
    ```
+   # 使用 npm 安装依赖
+   $ npm install
 
-4. npm run dev 启动项目
-    
+   # OR 使用 yarn
+   $ yarn install
+   ```
+3. 全局安装 `@tarojs/cli` 脚手架，如已有可省略这一步
+   ```
+   # 使用 npm 安装 CLI
+   $ npm install -g @tarojs/cli
+
+   # OR 使用 yarn 安装 CLI
+   $ yarn global add @tarojs/cli
+   ```
+4. 运行补丁包，如果项目中有修改node_modules的第三方库则运行，没有可省略
+   ```
+   # 使用 npm
+   $ npm run postinstall
+
+   # OR 使用 yarn
+   $ yarn postinstall
+   ```
+5. 启动项目, 默认启动h5
+   ```
+   # 使用 npm
+   $ npm run dev
+
+   # OR 使用 yarn
+   $ yarn dev
+   ```
 
 ## git提交规范
 

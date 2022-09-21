@@ -14,7 +14,7 @@
                 {
                     "name": "小程序码",
                     "pathName": "pages/home/index",
-                    "query": "scene=0%2C358",
+                    "query": "",
                     "scene": 1047
                 }
             ]

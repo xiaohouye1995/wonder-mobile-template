@@ -1,18 +1,11 @@
 .state-page {
-  // padding-top: 92px;
   &.area-bottom {
     padding-bottom: 224px;
-  }
-  .btn-login {
-    border-radius: 42px !important;
-    font-size: 32px !important;
-    width: 360px;
   }
   .custom-navigation {
     height: 92px;
     width: 100%;
-    // background-color: #fff;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 999999;

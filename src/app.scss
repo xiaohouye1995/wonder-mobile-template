@@ -1,15 +1,4 @@
-/* iPhone x异形屏适配 */
-// html .taro-tabbar__tabbar-bottom {
-//   padding-bottom: constant(safe-area-inset-bottom); /*兼容 IOS<11.2*/
-//   padding-bottom: env(safe-area-inset-bottom); /*兼容 IOS>11.2*/
-//   background: #fff;
-// }
-
 // 隐藏h5编译模式下iframe报错
 #react-refresh-overlay {
   display: none;
-}
-.taro__toast div{
-  background: rgba(0,0,0,0.4000) !important;
-  border-radius: 4px !important;
 }

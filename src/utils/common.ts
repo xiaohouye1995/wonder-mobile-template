@@ -105,34 +105,29 @@ export const rpxToPx = (rpx: number) => {
  * 判断是否使用自定义导航栏
  */
 export const isUseCustomNav = () => {
-  let testApp = true
-  const userAgentStr = window.navigator.userAgent
-  if (/MicroMessenger/.test(userAgentStr)) {
-    // 微信
-    testApp = false
-  } else if (/AlipayClient/.test(userAgentStr)) {
-    // 支付宝
-    testApp = false
-  } else if (/DingTalk/.test(userAgentStr)) {
-    // 钉钉
-    testApp = false
+  let testApp = false
+  if (process.env.TARO_ENV === 'h5') {
+    testApp = true
+    const userAgentStr = window.navigator.userAgent
+    if (/MicroMessenger/.test(userAgentStr)) {
+      // 微信
+      testApp = false
+    } else if (/AlipayClient/.test(userAgentStr)) {
+      // 支付宝
+      testApp = false
+    } else if (/DingTalk/.test(userAgentStr)) {
+      // 钉钉
+      testApp = false
+    }
   }
+
   return testApp
 }
 
 /**
- * 判断跳转链接
+ * 手机号验证
+ * @param phone 手机号
  */
-export const isRouterUrl = (url, type?: number) => {
-  if (type === 1 && url && url !== '/') {
-    navigateToPage(url)
-  } else if (type === 2 && url && url !== '/') {
-    navigateToH5(url)
-  } else {
-    Taro.showToast({
-      title: '暂无更多内容',
-      icon: 'none',
-      duration: 2000,
-    })
-  }
+export const isMobile = (phone: string) => {
+  return /^1[3-9]\d{9}$/.test(phone)
 }

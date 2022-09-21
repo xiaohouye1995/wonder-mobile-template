@@ -6,8 +6,8 @@
 import path from 'path'
 
 const config = {
-  projectName: '杭州网达软件',
-  date: '2022-6-1',
+  projectName: '杭州网达移动多端模板',
+  date: '2022-9-19',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
@@ -55,7 +55,7 @@ const config = {
     publicPath: '/',
     staticDirectory: 'static',
     router: {
-      mode: 'browser' // 或者是 'browser'
+      mode: 'browser' // 'hash' | 'browser'
     },
     postcss: {
       autoprefixer: {

@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'iconfont'; /* Project id 2760843 */
-  src: url('//at.alicdn.com/t/font_2760843_cw8gdtuj9f9.woff2?t=1635048333433')
+  font-family: 'iconfont'; /* Project id 3461134 */
+  src: url('//at.alicdn.com/t/c/font_3461134_sm4kyd25ltr.woff2?t=1661848827700')
       format('woff2'),
-    url('//at.alicdn.com/t/font_2760843_cw8gdtuj9f9.woff?t=1635048333433')
+    url('//at.alicdn.com/t/c/font_3461134_sm4kyd25ltr.woff?t=1661848827700')
       format('woff'),
-    url('//at.alicdn.com/t/font_2760843_cw8gdtuj9f9.ttf?t=1635048333433')
+    url('//at.alicdn.com/t/c/font_3461134_sm4kyd25ltr.ttf?t=1661848827700')
       format('truetype');
 }
 .iconfont {
@@ -16,149 +16,88 @@
   color: $hezi-gray-icon;
 }
 
-.icon-Back:before {
-  content: '\e68c';
+.icon-fangxiang-zuo:before {
+  content: '\e6ce';
 }
-.icon-arrow:before {
-  content: '\e647';
+.icon-fangxiang-you:before {
+  content: '\e6cd';
+}
+.icon-cuowu:before {
+  content: '\e600';
 }
 
 // 字体
-.t0 {
-  font-size: 40px;
-  font-weight: bold;
-  color: $hezi-text-color;
-}
 .t1 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: bold;
   color: $hezi-text-color;
 }
-
 .t2 {
   font-size: 32px;
   font-weight: bold;
   color: $hezi-text-color;
 }
-
 .t3 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   color: $hezi-text-color;
 }
-
 .t4 {
   font-size: 28px;
   color: $hezi-text-color;
 }
-
 .t5 {
   font-size: 26px;
   color: $hezi-text-color;
 }
-
 .t6 {
   font-size: 24px;
   color: $hezi-text-color;
 }
-
-.t7plus {
-  font-size: 22px;
-  color: $hezi-text-color-light;
-}
-
 .t7 {
+  font-size: 22px;
+  color: $hezi-text-color;
+}
+.t8 {
   font-size: 20px;
   color: $hezi-text-color-light;
 }
-
-.t8 {
+.t9 {
   font-size: 18px;
   color: $hezi-text-color-light;
 }
-
-.t9 {
+.t10 {
   font-size: 16px;
   color: $hezi-text-color-light;
 }
 
-// 颜色类
-// 文字
+// 文字颜色
 .text-primary {
   color: $hezi-color-primary;
 }
-
-.text-secondary {
-  color: $hezi-color-secondary;
-}
-
-.text-warning {
-  color: $hezi-color-warning;
-}
-
-.text-success {
-  color: $hezi-color-success;
-}
-
-.text-error {
-  color: $hezi-color-primary-500;
-}
-
 .text-light {
   color: $hezi-text-color-light;
 }
-
 .text-gray {
-  color: $hezi-text-color-dark-gray;
-}
-
-.text-gray-light {
   color: $hezi-text-color-gray;
 }
-
 .text-dark {
   color: $hezi-text-color;
 }
 .text-white {
   color: #fff;
 }
-.text-427FD4 {
-  color: #427fd4;
-}
-.text-1C1C1C {
-  color: #1c1c1c;
-}
-.text-595959 {
-  color: #595959;
-}
 .text-000 {
   color: #000;
-}
-.text-C83232 {
-  color: #C83232;
 }
 .text-999 {
   color: #999;
 }
-.text-DE3A3A {
-  color: #DE3A3A;
+.text-666 {
+  color: #666;
 }
 
-.bg-yellow {
-  background: #ff982b;
-}
-.bg-blue {
-  background: #3395f9;
-}
-.bg-gray {
-  background: #f8f8fa;
-}
-.bg-pink {
-  background: #f56562;
-}
-.bg-green {
-  background: $hezi-color-success;
-}
+// 背景颜色
 .bg-transparent {
   background: transparent;
 }
@@ -166,14 +105,10 @@
   background: #fff;
 }
 
+// 文字对齐
 .text-center {
   text-align: center;
 }
-
-.text-decoration {
-  text-decoration: line-through;
-}
-
 .text-left {
   text-align: left;
 }
@@ -181,8 +116,9 @@
   text-align: right;
 }
 
-.opacity-7 {
-  opacity: 0.7;
+// 文字删除线
+.text-decoration {
+  text-decoration: line-through;
 }
 
 // 字重
@@ -193,39 +129,19 @@
   font-weight: normal;
 }
 
-.letter-spacing_-4 {
-  letter-spacing: -2px;
-}
-// 主题色，即背景色，附带字体颜色以及disabled和交互色
-.primary {
-  color: #fff;
-  // background-color: $hezi-color-primary;
-
-  &:active {
-    opacity: 0.4;
-    color: #fff;
-  }
-  // &.disabled {
-  //   opacity: 0.4;
-  // }
-
-  // &:hover {
-  //   // background-color: $hezi-color-primary-600;
-  //   opacity: 0.4;
-  // }
-}
-
 // 渐变色
 .primary-gradient {
-  background-image: linear-gradient(315deg, #d62f33 0%, #f27376 100%);
+  background-image: linear-gradient(90deg, #e66161 0%, #c83232 100%);
 }
 
 // 投影
 .shadow {
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
 }
-.shadow-primary {
-  box-shadow: 0px 4px 8px 0px rgba(217, 95, 98, 0.5);
+
+// 文字链接
+.text-link {
+  color: #32c5ff;
 }
 
 .button,
@@ -249,14 +165,6 @@ button[type='default'].button {
   line-height: 56px;
   width: 172px;
 
-  // &.button-md {
-  //   height: 60px;
-  //   line-height: 60px;
-  //   font-size: 22px;
-  //   min-width: 144px;
-  //   padding: 0 16px;
-  // }
-
   &.square {
     @extend .round-sm;
   }
@@ -278,13 +186,11 @@ button[type='default'].button {
   }
 
   &.button-primary {
-    @extend .primary;
-    // color: #fff;
-    @extend .primary-gradient;
-
-    &.shadow {
-      @extend .shadow-primary;
+    color: #fff;
+    &:active {
+      opacity: 0.4;
     }
+    @extend .primary-gradient;
   }
 }
 
@@ -345,6 +251,8 @@ button[type='default'].button {
     line-height: $distance * 2px;
   }
 }
+
+// 行高
 .lh {
   line-height: 1.4;
 }
@@ -363,9 +271,6 @@ button[type='default'].button {
 .round-lg {
   border-radius: 16px;
 }
-.round-semicircle {
-  border-radius: 40px;
-}
 .round-full {
   border-radius: 50%;
 }
@@ -375,51 +280,42 @@ button[type='default'].button {
   display: flex;
   flex-wrap: nowrap;
 }
-
 .flex.flex-col {
   flex-direction: column;
 }
-
 .flex .flex-row {
   flex-direction: row;
 }
-
 .flex.flex-wrap {
   flex-wrap: wrap;
 }
-
 .flex-center {
   justify-content: center;
   align-items: center;
 }
-
 .flex-x-center {
   justify-content: center;
 }
 .flex-x-end {
   justify-content: flex-end;
 }
-
 .flex-y-center {
   align-items: center;
 }
-
 .flex-y-end {
   align-items: flex-end;
 }
-
 .flex-y-start {
   align-items: flex-start;
 }
-
 .flex-between {
   justify-content: space-between;
 }
-
 .flex-1 {
   flex: 1;
 }
 
+// 蒙层
 .mask {
   position: fixed;
   left: 0;
@@ -429,26 +325,19 @@ button[type='default'].button {
   background-color: $hezi-gray-mask;
 }
 
-.full {
-  box-sizing: border-box;
-  width: 100%;
-}
-
+// 单行省略
 .lineOmit {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+// 分割线
 .divider-line {
   width: 100%;
   height: 1px;
   border-radius: 1px;
   background: #eeeeee;
-}
-
-.line-height-1-4 {
-  line-height: 1.4;
 }
 
 @supports (bottom: constant(safe-area-inset-bottom)) or
@@ -477,7 +366,6 @@ button[type='default'].button {
 
 page {
   @extend .t4;
-  line-height: 1.4;
   background-color: $hezi-background-gray;
 }
 

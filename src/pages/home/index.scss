@@ -1,39 +1,34 @@
 .home {
-  // font-size: 28px;
   color: #333333;
   font-family: PingFangSC-Regular, PingFang SC;
-
-  // .Swipershadow {
-  //   filter: drop-shadow(3px 5px 15px rgba(215, 67, 67, 1));
-  //   z-index: 9;
-  // }
 
   .home-swiper {
     height: 248px;
     box-sizing: border-box;
     overflow: hidden;
-    // filter: drop-shadow(3px 5px 15px rgba(0, 0, 0, 0.06));
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.06);
   }
 
+  .test-box {
+    // width: 100px;
+    // height: 300px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .banner {
-    // 所有图片固定宽高
     width: 694px;
     height: 248px;
     box-sizing: border-box;
     border-radius: 12px;
     overflow: hidden;
-
-    // .taro-img__mode-aspectfill--width {
-    //   width: 100%;
-    //   overflow: hidden;
-    // }
   }
 
   .database-banner {
     width: 100%;
     height: 248px;
-    // filter: drop-shadow(3px 5px 15px rgba(0, 0, 0, 0.06));
 
     .bannerImg {
       width: 100%;
@@ -41,30 +36,11 @@
     }
   }
 
-  // .bannerImg {
-  //   width: 14.8rem;
-  //   height: 5.5rem;
-  //   box-sizing: border-box;
-  //   // border-radius: 12px;
-  //   overflow: hidden;
-  // }
-
   .bannerSkeleton {
     width: 694px;
     height: 248px;
     background: rgba(190, 190, 190, 0.2);
   }
-
-  // .bannerSkeleton::after {
-  //   width: 694px;
-  //   height: 248px;
-  //   position: absolute;
-  //   inset: 0 -150%;
-  //   background: linear-gradient(90deg, rgba(190, 190, 190, .2) 25%, rgba(129, 129, 129, .24) 37%, rgba(190, 190, 190, .2) 63%);
-  //   // -webkit-animation: ant-skeleton-loading 1.4s ease infinite;
-  //   animation: ant-skeleton-loading 1.4s ease infinite;
-  //   content: "";
-  // }
 
   .bannerBot {
     width: 680px;
@@ -81,32 +57,6 @@
     height: 78px;
   }
 
-  // .midbanner {
-  //   width: 750px;
-  //   height: 132px;
-  //   border: 1px solid transparent;
-  //   box-sizing: border-box;
-  //   .advertising {
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-  //   .taro-img__mode-aspectfill--width {
-  //     width: 100%;
-  //     overflow: hidden;
-  //   }
-  // }
-
-  // .midbanner-one {
-  //   width: 100%;
-  //   height: 132px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   .advertising {
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-  // }
   .advertiseBanner {
     width: 100%;
     height: 132px;
@@ -198,7 +148,6 @@
 
   .navigation {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     margin-top: 40px;
     width: 694px;
@@ -472,14 +421,6 @@
     // }
   }
 
-  // .solveBox {
-  //   display: inline-block;
-  //   width: 1326px;
-  //   height: 294px;
-  //   background: url('../../assets/home/solve-bg.png') repeat-x;
-  //   background-size: 442px 294px;
-  //   overflow: scroll;
-  // }
   .solveOutermost {
     display: flex;
     width: 100%;

@@ -1,11 +1,7 @@
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   .loading-box {
-    width: 32px;
-    height: 32px;
+    width: 50px;
+    height: 50px;
     display: inline-block;
     border: 3px solid $hezi-gray-border;
     border-top: 3px solid $hezi-color-primary;
@@ -21,14 +17,11 @@
       }
     }
   }
-  .demoCanvas {
+  .svga-canvas {
     width: 128px;
     height: 128px;
   }
   &.loading-hide {
     display: none;
-  }
-  &.customNav {
-    height: calc(100vh - 92px);
   }
 }

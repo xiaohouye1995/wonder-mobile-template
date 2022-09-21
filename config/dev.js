@@ -4,7 +4,6 @@
  */
 
 const isH5 = process.env.TARO_ENV === 'h5'
-const HOST = '"http://192.168.1.51:28008/"'
 
 /* eslint-disable import/no-commonjs */
 module.exports = {
@@ -12,17 +11,17 @@ module.exports = {
     NODE_ENV: '"development"',
   },
   defineConstants: {
-    API_ROOT: isH5 ? '"/"' : '"http://192.168.1.51:28008/"',
-    // H5_ROOT: '"/"'
+    API_ROOT: isH5 ? '"/"' : '"/"',
+    H5_ROOT: '"/"'
   },
   mini: {},
   h5: {
     devServer: {
       proxy: {
-        '/5gmall-api/': {
-          target: 'http://192.168.1.51:28008/',
+        '/api/': {
+          target: '/',
           // pathRewrite: {
-          //   '^/api/': '5gmall-api/'
+          //   '^/api/': '/'
           // },
           logLevel: 'debug', // 打印真实接口地址
           changeOrigin: true

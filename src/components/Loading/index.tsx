@@ -4,36 +4,31 @@
  */
 import React, { useState, useEffect } from 'react'
 import { Parser, Player } from 'svga'
-// import Taro from '@tarojs/taro'
-import { View, Image } from '@tarojs/components'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/store'
+import { View } from '@tarojs/components'
 import { loadingSvga } from '@/utils/loadingSvga'
-// import loadingGif from '@/assets/common/loading.gif'
 import './index.scss'
 
 interface IPageProps {
-  // title?: string
-  isShow?: boolean
+  title?: string
+  isLoading?: boolean // 控制loading展示与隐藏
+  isSvga?: boolean // 使用svga进行loading加载
   className?: string
   styleVal?: string
 }
 
 const Loading: React.FC<IPageProps> = (props: IPageProps) => {
-  const { isShow, className, styleVal } = props
-  const useCustomNav = useSelector(
-    (state: RootState) => state.global.useCustomNav
-  )
-  // const [isLoading, setIsLoading] = useState(false)
+  const { isLoading, className, styleVal, isSvga = true, title } = props
   const [canvasPlayer, setCanvasPlayer] = useState<any>()
   const parser = new Parser()
 
   useEffect(() => {
+    if (!isSvga) {
+      return
+    }
     let time: any = null
-    if (isShow) {
+    if (isLoading) {
       time = setTimeout(() => {
         toSetParser()
-        // setIsLoading(true)
       }, 300)
     } else {
       canvasPlayer && canvasPlayer.stop()
@@ -41,34 +36,18 @@ const Loading: React.FC<IPageProps> = (props: IPageProps) => {
       parser.destroy()
     }
     return () => {
-      clearTimeout(time)
+      time && clearTimeout(time)
       canvasPlayer && canvasPlayer.stop()
       canvasPlayer && canvasPlayer.clear()
       parser.destroy()
     }
-  }, [isShow])
-
-  // useEffect(() => {
-  //   // const time = setTimeout(() => {
-  //   //   setIsLoading(true)
-  //   // }, 3000)
-  //   if (isShow) {
-  //     setTimeout(() => {
-  //       setIsLoading(true)
-  //     }, 1000)
-  //   }
-  //   return clearTimeout()
-  // }, [isShow])
+  }, [isLoading])
 
   const toSetParser = async () => {
     const canvas: any = document.getElementById('canvas')
     const player = new Player(canvas)
     setCanvasPlayer(player)
-    // const svga = await parser.load('/svga/%E6%B0%B4%E6%99%B6%E9%9E%8B.svga')
-    // const svga = await parser.load('../../assets/common/loading3.svga')
-    // const svga = await parser.load('https://github.com/svga/SVGA-Samples/raw/master/angel.svga')
     const svga = await parser.load(loadingSvga)
-    // const canvas: any = Taro.createSelectorQuery().select('#canvas')
     await player.mount(svga)
     player.onStart = () => console.log('onStart')
     player.onProcess = () => console.log('onProcess')
@@ -77,19 +56,16 @@ const Loading: React.FC<IPageProps> = (props: IPageProps) => {
 
   return (
     <View
-      className={[
-        'loading',
-        className,
-        useCustomNav ? 'customNav' : '',
-        isShow ? 'loading-show' : 'loading-hide',
-      ].join(' ')}
+      className={['loading', className, !isLoading && 'loading-hide'].join(' ')}
       style={styleVal}
     >
-      {/* <View className='loading-box'></View> */}
-      {/* {title && <View className='ml-8 t7plus'>{title}</View>} */}
-      <canvas id='canvas' className='demoCanvas' />
-      {/* {isLoading && <Canvas id="canvas" canvasId='canvas' className='demoCanvas' />} */}
-      {/* {isLoading && <Image className='demoCanvas' src={loadingGif} />} */}
+      {!isSvga && (
+        <View className='flex'>
+          <View className='loading-box mr-20'></View>
+          {title && <View className='ml-8 text-light'>{title}</View>}
+        </View>
+      )}
+      {isSvga && <canvas id='canvas' className='svga-canvas' />}
     </View>
   )
 }

@@ -1,4 +1,4 @@
-# 杭州网达移动多端模板
+# 杭州网达移动多端模板 wonder-mobile-template
 
 ## 开发准备
 
@@ -58,4 +58,18 @@
    - style 仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑
    - test 测试用例，包括单元测试、集成测试等
    - merge 合并解决冲突
+
+## 组件、接口、资源目录及引用方式
+1. import 声明顺序遵循第三方库 > 公共文件夹 > 当前文件夹
+```
+import React, { useState, useEffect } from 'react'
+import { View, Text } from '@tarojs/components'
+import BasePage from '@/components/BasePage'
+import './index.scss'
+```
+2. 目录
+- 公共组件目录src/components
+- 接口目录src/apis
+- 资源目录src/assets
+
 

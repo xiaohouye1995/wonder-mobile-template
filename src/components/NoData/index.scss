@@ -1,18 +1,7 @@
 .noData--page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100vh;
-  background: #fff;
-  .noData-item {
-    margin-top: -140px;
-    width: 100%;
-  }
   .noData-img {
-    width: 488px;
-    height: 306px;
+    width: 300px;
+    height: 300px;
   }
   .noData-operator {
     margin-top: 52px;
@@ -20,8 +9,5 @@
   .noData-btn {
     width: 360px;
     border-radius: 42px;
-  }
-  &.customNav {
-    height: calc(100vh - 92px);
   }
 }

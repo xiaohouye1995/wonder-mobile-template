@@ -5,35 +5,46 @@
   right: 0;
   top: 0;
   visibility: hidden;
-  z-index: 99999999;
+  z-index: 999999;
 
-  &-mask {
+  .popup-wrapper {
+    z-index: 90;
+  }
+
+  .popup-mask {
     z-index: 10;
     opacity: 0;
     transition: opacity 0.3s ease-out;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
-  &.top {
-    .popup-wrapper {
-      background: $hezi-background-white;
-      position: fixed;
-      z-index: 11;
-      top: 88px;
-    }
+  .popup-icon-close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-size: 70px;
+    color: #fff;
+    z-index: 99;
   }
 
   &.bottom {
     .popup-wrapper {
-      box-shadow: 0px -4px 8px 0px rgba(237, 237, 237, 0.5000);
-      background: $hezi-background-white;
+      box-shadow: 0px -4px 8px 0px rgba(237, 237, 237, 0.5);
+      background: #fff;
       border-radius: 24px 24px 0 0;
       position: fixed;
       z-index: 11;
       right: 0;
       bottom: 0;
       left: 0;
-      height: 0px;
+      min-height: 400px;
       transition: height 0.3s ease-out;
+      padding-top: 20px;
       @include x-padding-bottom(-12px);
     }
   }
@@ -45,18 +56,9 @@
       z-index: 11;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%) scale(0);
+      transform: translate(-50%, -50%);
       opacity: 0;
       transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    }
-  }
-
-  .popup-wrapper {
-    .icon-guanbi1 {
-      position: absolute;
-      top: 18px;
-      right: 24px;
-      font-size: 30px;
     }
   }
 
@@ -66,16 +68,8 @@
     .popup-mask {
       opacity: 1;
     }
-
-    &.bottom {
-      .popup-wrapper {
-        height: var(--popup-height);
-      }
-    }
-
     &.center {
       .popup-wrapper {
-        transform: translate(-50%, -50%) scale(1);
         opacity: 1;
       }
     }
@@ -87,16 +81,8 @@
     .popup-mask {
       opacity: 0;
     }
-
-    &.bottom {
-      .popup-wrapper {
-        height: 0px;
-      }
-    }
-
     &.center {
       .popup-wrapper {
-        transform: translate(-50%, -50%) scale(0);
         opacity: 0;
       }
     }

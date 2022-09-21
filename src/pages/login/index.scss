@@ -1,27 +1,19 @@
 .login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #ffffff;
-  height: 100vh;
+  height: calc(100vh - 92px);
   .logo {
     width: 408px;
     height: 96px;
     margin-top: 158px;
   }
   .login-content {
-    align-self: flex-start;
     margin-top: 132px;
     .login-input {
       width: 630px;
       height: 88px;
-      box-sizing: border-box;
+      padding-left: 0;
+      padding-right: 0;
       border-bottom: 1px solid #f0f0f0;
-      color: #333;
-      font-family: sans-serif;
-      font-size: 28px;
-      font-weight: 400;
-      padding: 24px 0;
       position: relative;
       .code {
         position: absolute;
@@ -30,103 +22,31 @@
         color: #666666;
       }
     }
-    .userphone {
-      font-size: 48px;
-      font-family: sans-serif;
-      font-weight: 500;
-      color: #222222;
-    }
   }
-  .login-placeholder {
-    align-self: flex-start;
-    margin-top: 46px;
-    display: flex;
-    align-items: center;
-    .taro-checkbox_checked {
-      vertical-align: 1.5px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      margin-right: 24px;
-      color: #fff;
-    }
-    .taro-checkbox_checked:checked {
-      color: #fff;
-      // background: #fff;
-    }
-    .taro-checkbox_checked:checked::before {
-      background: #d03f3f;
-    }
+  input::-webkit-input-placeholder {
+    color: #999;
+  }
+  .checkbox {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #222222;
+  }
 
-    .checkbox {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      // background: #555;
-      margin-right: 24px;
-      box-sizing: border-box;
-      border: 1px solid #222222;
-    }
-
-    .isCheck {
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      background: url(../../assets/login/checkbox.png) no-repeat;
-      background-size: cover;
-      margin-right: 24px;
-    }
-
-    span {
-      font-size: 24px;
-      font-family: sans-serif;
-      font-weight: 400;
-      color: #222222;
-    }
-    span:nth-child(3) {
-      display: inline-block;
-      width: 192px;
-      height: 32px;
-      text-align: center;
-      line-height: 32px;
-      font-size: 24px;
-      font-family: sans-serif;
-      font-weight: 400;
-      color: #32c5ff;
-    }
+  .isCheck {
+    background: url(../../assets/login/checkbox.png) no-repeat;
+    background-size: cover;
+    border: none;
   }
   .login-btn {
     width: 624px;
     height: 96px;
     border-radius: 48px;
-    line-height: 96px;
-    margin-top: 48px;
     font-size: 32px;
-    font-family: sans-serif;
-    font-weight: 500;
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .mynumber {
-    align-self: flex-end;
-    margin-top: 80px;
-    font-size: 30px;
-    font-family: sans-serif;
-    font-weight: 400;
-    color: #222222;
-  }
-  .code-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .code-login .login-content {
-    align-self: center;
-  }
-  .code-login .login-placeholder {
-    align-self: center;
   }
 }

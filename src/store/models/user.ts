@@ -13,9 +13,6 @@ export const userInfo = createModel<RootModel>()({
     getUser: (state) => {
       return { ...state }
     },
-    setLocation: (state, payload: Store.User.ILocation) => {
-      return { ...state, location: payload }
-    },
     setExtendedParams: (state, payload: Store.User.IExtendedParameters) => {
       return { ...state, extendedParams: payload }
     },

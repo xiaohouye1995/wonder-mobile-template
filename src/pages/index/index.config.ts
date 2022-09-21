@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '样式表',
+  navigationBarTitleText: '设计规范',
 }

@@ -67,9 +67,7 @@ export const get = <T>(url: string, data = {}, msg?: string): Promise<T> =>
         title: msg,
       })
     }
-
     Taro.addInterceptor(interceptor)
-
     Taro.request({
       url: baseUrl + url,
       method: 'GET',
@@ -146,10 +144,13 @@ export const post = <T>(
         if (loading) {
           Taro.hideLoading()
         }
-        if (res.data.code === 404) {
-          handle404()
-          reject(res.data.msg || '网络开小差了！！！')
-          return
+        if (!res.data) {
+          Taro.showToast({
+            icon: 'none',
+            title: '服务器未响应',
+          })
+          reject('服务器未响应')
+          Taro.hideLoading()
         }
         Taro.showToast({
           icon: 'none',

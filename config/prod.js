@@ -9,7 +9,7 @@ module.exports = {
   },
   defineConstants: {
     API_ROOT:'"/"',
-    // H5_ROOT:'"/"',
+    H5_ROOT:'"/"',
   },
   mini: {},
   h5: {

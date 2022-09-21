@@ -2,7 +2,7 @@
   "name": "wonder-mobile-template",
   "version": "1.0.0",
   "private": true,
-  "description": "网达移动多端脚手架",
+  "description": "网达移动多端前端模板",
   "templateInfo": {
     "name": "default",
     "typescript": true,

@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 
   return (
     <BasePage
-      className='home px-28'
+      className='home--page px-28'
       pageTitle='首页'
       isTabPage
       navBgColor='#F6F6F6'
